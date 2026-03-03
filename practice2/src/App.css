@@ -6,7 +6,6 @@ body {
   color: #2d3748;
 }
 
-/* ─── Навигация ─────────────────────────── */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -19,21 +18,17 @@ body {
 .nav-btn  { color: #fff; text-decoration: none; background: #e53e3e; padding: 9px 20px; border-radius: 8px; font-weight: 600; transition: background .2s; }
 .nav-btn:hover { background: #c53030; }
 
-/* ─── Контейнер ─────────────────────────── */
 .container { max-width: 1000px; margin: 36px auto; padding: 0 20px; }
 
-/* ─── Утилиты ───────────────────────────── */
 .spinner   { text-align: center; margin-top: 80px; font-size: 20px; color: #718096; }
 .error-box { background: #fff5f5; border: 1px solid #fc8181; color: #c53030; padding: 16px 20px; border-radius: 8px; margin-bottom: 20px; }
 
-/* ─── Бейджи уровня угрозы ──────────────── */
 .badge          { display: inline-block; padding: 3px 12px; border-radius: 20px; font-size: 12px; font-weight: 700; margin-bottom: 10px; }
 .badge-critical { background: #fff5f5; color: #c53030; border: 1px solid #fc8181; }
 .badge-high     { background: #fffaf0; color: #c05621; border: 1px solid #f6ad55; }
 .badge-medium   { background: #fffff0; color: #975a16; border: 1px solid #f6e05e; }
 .badge-low      { background: #f0fff4; color: #276749; border: 1px solid #68d391; }
 
-/* ─── Главная страница — карточки ───────── */
 .page-title  { font-size: 26px; font-weight: 700; margin-bottom: 24px; color: #1a202c; }
 .cards-grid  { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
 
@@ -53,7 +48,6 @@ body {
               display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .card-actions { display: flex; gap: 8px; margin-top: 14px; }
 
-/* ─── Кнопки ────────────────────────────── */
 .btn         { padding: 8px 16px; border: none; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; transition: opacity .2s; }
 .btn:hover   { opacity: 0.85; }
 .btn-edit    { background: #3182ce; color: #fff; }
@@ -62,12 +56,10 @@ body {
 .btn-save    { background: #38a169; color: #fff; padding: 10px 28px; font-size: 15px; }
 .btn-cancel  { background: #a0aec0; color: #fff; padding: 10px 20px; font-size: 15px; text-decoration: none; border-radius: 6px; display: inline-block; }
 
-/* ─── Пустой список ─────────────────────── */
 .empty-state       { text-align: center; padding: 60px 20px; color: #718096; }
 .empty-state .icon { font-size: 60px; margin-bottom: 16px; }
 .empty-state p     { font-size: 18px; margin-bottom: 20px; }
 
-/* ─── Страница деталей ──────────────────── */
 .detail-card  { background: #fff; border-radius: 12px; padding: 32px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
 .detail-title { font-size: 28px; font-weight: 700; color: #1a202c; margin-bottom: 16px; }
 .detail-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
@@ -75,7 +67,6 @@ body {
 .detail-table td:first-child { font-weight: 700; color: #4a5568; width: 180px; vertical-align: top; }
 .detail-actions { display: flex; gap: 12px; margin-top: 24px; }
 
-/* ─── Форма ─────────────────────────────── */
 .form-card    { background: #fff; border-radius: 12px; padding: 32px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); max-width: 600px; }
 .form-title   { font-size: 22px; font-weight: 700; margin-bottom: 24px; color: #1a202c; }
 .form-group   { margin-bottom: 18px; }
