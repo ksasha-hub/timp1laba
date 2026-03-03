@@ -13,18 +13,17 @@ const getBadgeClass = (severity) => {
 };
 
 const Detail = () => {
-  const { id } = useParams();      // id из URL: /detail/:id
+  const { id } = useParams();      
   const navigate = useNavigate();
 
   const [threat,  setThreat]  = useState(null);
   const [loading, setLoading] = useState(true);
   const [error,   setError]   = useState(null);
 
-  // GET: загрузка данных одной угрозы
   useEffect(() => {
     getThreatById(id)
       .then(res => {
-        setThreat(res.data);  // JSON-объект → state
+        setThreat(res.data);  
         setLoading(false);
       })
       .catch(err => {
