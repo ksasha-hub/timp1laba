@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { getThreatById, createThreat, updateThreat } from '../api/threatsApi';
 
-// Начальное пустое состояние формы
 const emptyForm = {
   name: '', category: '', severity: '',
   year: new Date().getFullYear(),
@@ -20,14 +19,13 @@ const SEVERITIES = ['Критическая', 'Высокая', 'Средняя'
 const Form = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const isEdit = Boolean(id); // true → PUT, false → POST
+  const isEdit = Boolean(id); 
 
   const [formData,    setFormData]    = useState(emptyForm);
   const [errors,      setErrors]      = useState({});
   const [loading,     setLoading]     = useState(false);
   const [serverError, setServerError] = useState(null);
 
-  // GET: если режим редактирования — загружаем данные угрозы
   useEffect(() => {
     if (!isEdit) return;
     setLoading(true);
@@ -42,14 +40,12 @@ const Form = () => {
       });
   }, [id, isEdit]);
 
-  // Обработка изменения любого поля формы
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-    setErrors(prev => ({ ...prev, [name]: '' })); // сброс ошибки поля
+    setErrors(prev => ({ ...prev, [name]: '' })); 
   };
 
-  // Клиентская валидация всех полей
   const validate = () => {
     const errs = {};
     if (!formData.name.trim())
@@ -69,7 +65,6 @@ const Form = () => {
     return errs;
   };
 
-  // Отправка формы: POST (создание) или PUT (редактирование)
   const handleSubmit = (e) => {
     e.preventDefault();
     setServerError(null);
@@ -80,7 +75,6 @@ const Form = () => {
       return;
     }
 
-    // Формируем объект для отправки в формате JSON
     const threatData = {
       name:        formData.name.trim(),
       category:    formData.category,
@@ -93,11 +87,11 @@ const Form = () => {
     setLoading(true);
 
     const request = isEdit
-      ? updateThreat(id, threatData)  // PUT /items/:id
-      : createThreat(threatData);     // POST /items
+      ? updateThreat(id, threatData) 
+      : createThreat(threatData);     
 
     request
-      .then(() => navigate('/'))      // редирект на главную после успеха
+      .then(() => navigate('/'))      
       .catch(err => {
         const status = err.response?.status;
         if      (status === 404)   setServerError('Ошибка 404: запись не найдена.');
@@ -120,7 +114,7 @@ const Form = () => {
 
       <form onSubmit={handleSubmit} noValidate>
 
-        {/* Название */}
+        {}
         <div className="form-group">
           <label className="form-label">Название угрозы *</label>
           <input type="text" name="name" value={formData.name}
@@ -129,7 +123,7 @@ const Form = () => {
           {errors.name && <span className="form-error">⚠️ {errors.name}</span>}
         </div>
 
-        {/* Категория */}
+        {}
         <div className="form-group">
           <label className="form-label">Категория *</label>
           <select name="category" value={formData.category} onChange={handleChange}
@@ -140,7 +134,7 @@ const Form = () => {
           {errors.category && <span className="form-error">⚠️ {errors.category}</span>}
         </div>
 
-        {/* Уровень угрозы */}
+        {}
         <div className="form-group">
           <label className="form-label">Уровень угрозы *</label>
           <select name="severity" value={formData.severity} onChange={handleChange}
@@ -151,7 +145,7 @@ const Form = () => {
           {errors.severity && <span className="form-error">⚠️ {errors.severity}</span>}
         </div>
 
-        {/* Год актуальности */}
+        {}
         <div className="form-group">
           <label className="form-label">Год актуальности *</label>
           <input type="number" name="year" value={formData.year}
@@ -160,7 +154,7 @@ const Form = () => {
           {errors.year && <span className="form-error">⚠️ {errors.year}</span>}
         </div>
 
-        {/* Описание */}
+        {}
         <div className="form-group">
           <label className="form-label">Описание угрозы *</label>
           <textarea name="description" value={formData.description} onChange={handleChange}
@@ -169,7 +163,7 @@ const Form = () => {
           {errors.description && <span className="form-error">⚠️ {errors.description}</span>}
         </div>
 
-        {/* Меры защиты */}
+        {}
         <div className="form-group">
           <label className="form-label">Меры защиты *</label>
           <textarea name="prevention" value={formData.prevention} onChange={handleChange}
